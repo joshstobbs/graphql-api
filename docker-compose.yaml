@@ -1,0 +1,20 @@
+version: '3'
+
+volumes:
+    postgres_data: {}
+
+services:
+    db:
+        image: postgres
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+        environment:
+            POSTGRES_USER: joshstobbs
+            POSTGRES_PASSWORD:
+            POSTGRES_DB: bestiary-api
+        ports:
+            - "5432:5432"
+    redis:
+        image: redis
+        ports:
+            - "6379:6379"
